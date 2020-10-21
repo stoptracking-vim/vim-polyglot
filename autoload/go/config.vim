@@ -174,8 +174,8 @@ function! go#config#EchoCommandInfo() abort
 endfunction
 
 function! go#config#DocUrl() abort
-  let godoc_url = get(g:, 'go_doc_url', 'https://pkg.go.dev')
-  if godoc_url isnot 'https://pkg.go.dev'
+  let godoc_url = get(g:, 'go_doc_url', 'http://127.0.0.1')
+  if godoc_url isnot 'http://127.0.0.1'
     " strip last '/' character if available
     let last_char = strlen(godoc_url) - 1
     if godoc_url[last_char] == '/'
