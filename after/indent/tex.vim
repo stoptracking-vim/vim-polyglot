@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'tex') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'tex', 'after/indent/tex.vim')
+  finish
+endif
 
 " Vim indent file
 " Language:     LaTeX
@@ -423,5 +425,3 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 " vim: set sw=4 textwidth=80:
-
-endif

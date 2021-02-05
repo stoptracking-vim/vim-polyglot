@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'typescript') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'typescript', 'syntax/basic/keyword.vim')
+  finish
+endif
 
 "Import
 syntax keyword typescriptImport                from as
@@ -96,5 +98,3 @@ syntax cluster typescriptAmbients contains=
   \ typescriptAbstract,
   \ typescriptEnumKeyword,typescriptEnum,
   \ typescriptModule
-
-endif

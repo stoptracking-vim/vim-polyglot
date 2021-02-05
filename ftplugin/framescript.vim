@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'framescript') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'framescript', 'ftplugin/framescript.vim')
+  finish
+endif
 
 " Vim ftplugin file
 " Language:             FrameScript
@@ -30,5 +32,3 @@ endif
 
 let &cpo = s:cpo_save 
 unlet s:cpo_save
-
-endif

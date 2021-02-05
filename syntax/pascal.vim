@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'pascal') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'pascal', 'syntax/pascal.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	Pascal
@@ -360,5 +362,3 @@ hi def link pascalShowTab		Error
 let b:current_syntax = "pascal"
 
 " vim: ts=8 sw=2
-
-endif

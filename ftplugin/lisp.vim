@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'lisp') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'lisp', 'ftplugin/lisp.vim')
+  finish
+endif
 
 " Vim filetype plugin
 " Language:      Lisp
@@ -26,5 +28,3 @@ setl commentstring=;%s
 setl comments^=:;;;,:;;,sr:#\|,mb:\|,ex:\|#
 
 let b:undo_ftplugin = "setlocal comments< define< formatoptions< iskeyword< lisp< commentstring<"
-
-endif

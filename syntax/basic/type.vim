@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'typescript') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'typescript', 'syntax/basic/type.vim')
+  finish
+endif
 
 " Types
 syntax match typescriptOptionalMark /?/ contained
@@ -214,5 +216,3 @@ syntax region typescriptAliasDeclaration matchgroup=typescriptUnion
 syntax keyword typescriptReadonlyArrayKeyword readonly
   \ nextgroup=@typescriptPrimaryType
   \ skipwhite
-
-endif

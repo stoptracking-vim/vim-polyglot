@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'html') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'html', 'syntax/html.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:             HTML
@@ -338,5 +340,3 @@ endif
 let &cpo = s:cpo_save
 unlet s:cpo_save
 " vim: ts=8
-
-endif

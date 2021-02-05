@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'hamster') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'hamster', 'ftplugin/hamster.vim')
+  finish
+endif
 
 " Vim filetype plugin
 " Language:    Hamster Script
@@ -62,5 +64,3 @@ setlocal ignorecase
 let &cpo = s:cpo_save
 unlet s:cpo_save
 setlocal cpo+=M		" makes \%( match \)
-
-endif

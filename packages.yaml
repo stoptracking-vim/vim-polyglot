@@ -403,6 +403,7 @@ filetypes:
   extra_extensions:
   # 17 results: https://github.com/search?q=extension%3Acoffeekup+html&type=Code
   - coffeekup
+  - cson
   ignored_warnings:
   # Probably mistake
   - '*Cakefile'
@@ -575,7 +576,7 @@ filetypes:
   - ferm.conf
 ---
 name: fish
-remote: georgewitteman/vim-fish
+remote: blankname/vim-fish
 filetypes:
 - name: fish
   linguist: fish
@@ -941,7 +942,9 @@ remote: MaxMEllon/vim-jsx-pretty
 dependencies: javascript
 filetypes:
 - name: javascriptreact
-  linguist: JSX
+  patterns:
+  - pattern: '*.jsx'
+    description: Syntax Extension to JavaScript
 ---
 name: julia
 remote: JuliaEditorSupport/julia-vim
@@ -1235,6 +1238,13 @@ dependencies: php
 filetypes:
 - name: blade
   linguist: Blade
+---
+name: pest
+remote: pest-parser/pest.vim
+filetypes:
+- name: pest
+  extensions:
+  - pest
 ---
 name: plantuml
 remote: aklt/plantuml-syntax
@@ -1664,6 +1674,12 @@ filetypes:
   - p
   - tptp
   - ax
+---
+name: tutor
+filetypes:
+- name: tutor
+  extensions:
+  - tutor
 ---
 name: twig
 remote: lumiliet/vim-twig
@@ -3864,6 +3880,8 @@ remote: vim/vim:runtime
 glob: "**/nroff.vim"
 filetypes:
 - name: nroff
+  linguist: Roff Manpage
+- name: nroff
   patterns:
   - pattern: "*.tr,*.nr,*.roff,*.tmac,*.mom"
     description: Nroff/Troff (*.ms and *.t are checked below)
@@ -4950,6 +4968,7 @@ filetypes:
 name: tex
 remote: vim/vim:runtime
 glob: "**/tex.vim"
+extract_in_after: true
 filetypes:
 - name: tex
   patterns:
@@ -5509,11 +5528,6 @@ filetypes:
   patterns:
   - pattern: "XF86Config-4*,XF86Config*,*/xorg.conf.d/*.conf,xorg.conf,xorg.conf-4"
 ---
-name: man
-filetypes:
-- name: man
-  linguist: Roff Manpage
----
 name: xpm
 remote: vim/vim:runtime
 glob: "**/xpm.vim"
@@ -5536,3 +5550,34 @@ filetypes:
   patterns:
   - pattern: '*.mkii,*.mkiv,*.mkvi'
     description: ConTeXt
+---
+name: mint
+remote: IrenejMarc/vim-mint
+filetypes:
+- name: mint
+  patterns:
+  - pattern: '*.mint'
+    description: Mint (https://www.mint-lang.com/)
+---
+name: jsonc
+remote: neoclide/jsonc.vim
+filetypes:
+- name: jsonc
+  patterns:
+  - pattern: '*.cjson,coc-settings.json,*.jsonc,.eslintrc.json,.babelrc,.jshintrc,.jslintrc,.mocharc.json,coffeelint.json,tsconfig.json,jsconfig.json'
+    description: 'JSON with comments (https://komkom.github.io/)'
+---
+name: gleam
+remote: gleam-lang/gleam.vim
+filetypes:
+  - name: gleam
+    extensions:
+    - gleam
+---
+name: hjson
+remote: hjson/vim-hjson
+filetypes:
+- name: hjson
+  patterns:
+  - pattern: '*.hjson'
+    description: Hjson (https://hjson.github.io)

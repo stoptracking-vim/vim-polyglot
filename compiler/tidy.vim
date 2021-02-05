@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'tidy') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'tidy', 'compiler/tidy.vim')
+  finish
+endif
 
 " Vim compiler file
 " Compiler:	HTML Tidy
@@ -19,5 +21,3 @@ CompilerSet makeprg=tidy\ -quiet\ -errors\ --gnu-emacs\ yes\ %:S
 " foo.html:8:1: Warning: inserting missing 'foobar' element
 " foo.html:9:2: Error: <foobar> is not recognized!
 CompilerSet errorformat=%f:%l:%c:\ %trror:%m,%f:%l:%c:\ %tarning:%m,%-G%.%#
-
-endif

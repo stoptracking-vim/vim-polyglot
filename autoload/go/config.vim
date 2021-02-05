@@ -1,12 +1,10 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'go') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'go', 'autoload/go/config.vim')
+  finish
+endif
 
 " don't spam the user when Vim is started in Vi compatibility mode
 let s:cpo_save = &cpo
 set cpo&vim
-
-function! go#config#AutodetectGopath() abort
-	return get(g:, 'go_autodetect_gopath', 0)
-endfunction
 
 function! go#config#ListTypeCommands() abort
   return get(g:, 'go_list_type_commands', {})
@@ -174,8 +172,8 @@ function! go#config#EchoCommandInfo() abort
 endfunction
 
 function! go#config#DocUrl() abort
-  let godoc_url = get(g:, 'go_doc_url', 'http://127.0.0.1')
-  if godoc_url isnot 'http://127.0.0.1'
+  let godoc_url = get(g:, 'go_doc_url', 'https://pkg.go.dev')
+  if godoc_url isnot 'https://pkg.go.dev'
     " strip last '/' character if available
     let last_char = strlen(godoc_url) - 1
     if godoc_url[last_char] == '/'
@@ -265,13 +263,14 @@ function! go#config#SetTemplateAutocreate(value) abort
   let g:go_template_autocreate = a:value
 endfunction
 
+let s:default_metalinter = 'staticcheck'
 function! go#config#MetalinterCommand() abort
-  return get(g:, 'go_metalinter_command', 'golangci-lint')
+  return get(g:, 'go_metalinter_command', s:default_metalinter)
 endfunction
 
 function! go#config#MetalinterAutosaveEnabled() abort
   let l:default = []
-  if get(g:, 'go_metalinter_command', 'golangci-lint') == 'golangci-lint'
+  if get(g:, 'go_metalinter_command', s:default_metalinter) == 'golangci-lint'
     let l:default = ['govet', 'golint']
   endif
 
@@ -280,7 +279,7 @@ endfunction
 
 function! go#config#MetalinterEnabled() abort
   let l:default = []
-  if get(g:, 'go_metalinter_command', 'golangci-lint') == 'golangci-lint'
+  if get(g:, 'go_metalinter_command', s:default_metalinter) == 'golangci-lint'
     let l:default = ['vet', 'golint', 'errcheck']
   endif
 
@@ -623,5 +622,3 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 " vim: sw=2 ts=2 et
-
-endif

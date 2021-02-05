@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'hollywood') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'hollywood', 'syntax/hollywood.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:     Hollywood 8.0	
@@ -181,5 +183,3 @@ let b:current_syntax = "hollywood"
 let &cpo = s:cpo_save
 unlet s:cpo_save
 " vim: et ts=8 sw=2
-
-endif

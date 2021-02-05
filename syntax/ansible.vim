@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'ansible') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'ansible', 'syntax/ansible.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language: Ansible YAML/Jinja templates
@@ -111,5 +113,3 @@ else
 endif
 
 let b:current_syntax = "ansible"
-
-endif

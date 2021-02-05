@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'svelte') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'svelte', 'syntax/svelte.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:   Svelte 3 (HTML/JavaScript)
@@ -120,5 +122,3 @@ let b:current_syntax = "svelte"
 
 " Sync from start because of the wacky nesting.
 syntax sync fromstart
-
-endif

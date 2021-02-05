@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'rmd') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'rmd', 'ftplugin/rmd.vim')
+  finish
+endif
 
 " Vim filetype plugin file
 " Language: R Markdown file
@@ -63,5 +65,3 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 " vim: sw=2
-
-endif

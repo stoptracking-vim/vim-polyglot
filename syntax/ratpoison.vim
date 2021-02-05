@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'ratpoison') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'ratpoison', 'syntax/ratpoison.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	Ratpoison configuration/commands file ( /etc/ratpoisonrc ~/.ratpoisonrc )
@@ -267,5 +269,3 @@ hi def link ratpoisonWinListArg	Constant
 let b:current_syntax = "ratpoison"
 
 " vim: ts=8
-
-endif

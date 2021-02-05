@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'fortran') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'fortran', 'syntax/fortran.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	Fortran 2008 (and older: Fortran 2003, 95, 90, and 77)
@@ -546,5 +548,3 @@ let b:current_syntax = "fortran"
 let &cpo = s:cpo_save
 unlet s:cpo_save
 " vim: ts=8 tw=132
-
-endif

@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'tex') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'tex', 'after/compiler/tex.vim')
+  finish
+endif
 
 " Vim compiler file
 " Compiler:     TeX
@@ -67,5 +69,3 @@ CompilerSet errorformat=%E!\ LaTeX\ %trror:\ %m,
 
 let &cpo = s:keepcpo
 unlet s:keepcpo
-
-endif

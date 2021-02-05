@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'nroff') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'nroff', 'syntax/nroff.vim')
+  finish
+endif
 
 " VIM syntax file
 " Language:	nroff/groff
@@ -249,5 +251,3 @@ let b:current_syntax = "nroff"
 let &cpo = s:cpo_save
 unlet s:cpo_save
 " vim600: set fdm=marker fdl=2:
-
-endif

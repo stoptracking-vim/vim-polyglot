@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'fortran') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'fortran', 'indent/fortran.vim')
+  finish
+endif
 
 " Vim indent file
 " Language:	Fortran 2008 (and older: Fortran 2003, 95, 90, and 77)
@@ -219,5 +221,3 @@ let &cpoptions=s:cposet
 unlet s:cposet
 
 " vim:sw=2 tw=130
-
-endif

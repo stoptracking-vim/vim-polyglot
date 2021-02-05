@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'plantuml') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'plantuml', 'syntax/plantuml.vim')
+  finish
+endif
 
 scriptencoding utf-8
 " Vim syntax file
@@ -408,5 +410,3 @@ highlight default link plantumlStereotype Type
 
 let &cpoptions=s:cpo_orig
 unlet s:cpo_orig
-
-endif

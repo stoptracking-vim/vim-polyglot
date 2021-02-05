@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'sshconfig') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'sshconfig', 'syntax/sshconfig.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	OpenSSH client configuration file (ssh_config)
@@ -277,5 +279,3 @@ hi def link sshconfigDeprecated     Error
 let b:current_syntax = "sshconfig"
 
 " vim:set ts=8 sw=2 sts=2:
-
-endif

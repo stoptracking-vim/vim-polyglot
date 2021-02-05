@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'pascal') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'pascal', 'ftplugin/pascal.vim')
+  finish
+endif
 
 " Vim filetype plugin file
 " Language:	pascal
@@ -20,5 +22,3 @@ endif
 
 " Undo the stuff we changed.
 let b:undo_ftplugin = "unlet! b:match_words"
-
-endif

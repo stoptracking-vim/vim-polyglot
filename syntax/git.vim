@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'git') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'git', 'syntax/git.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	generic git output
@@ -80,5 +82,3 @@ hi def link gitDiffAdded         diffAdded
 hi def link gitDiffRemoved       diffRemoved
 
 let b:current_syntax = "git"
-
-endif

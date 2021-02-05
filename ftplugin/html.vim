@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'html') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'html', 'ftplugin/html.vim')
+  finish
+endif
 
 " Vim filetype plugin file
 " Language:	html
@@ -51,5 +53,3 @@ let b:undo_ftplugin = "setlocal commentstring< matchpairs< omnifunc< comments< f
 " Restore the saved compatibility options.
 let &cpo = s:save_cpo
 unlet s:save_cpo
-
-endif

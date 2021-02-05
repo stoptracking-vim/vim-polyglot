@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'ledger') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'ledger', 'autoload/ledger.vim')
+  finish
+endif
 
 scriptencoding utf-8
 " vim:ts=2:sw=2:sts=2:foldmethod=marker
@@ -442,6 +444,19 @@ function! ledger#align_commodity() abort
   endif
 endf
 
+" Align the commodity on the entire buffer
+function! ledger#align_commodity_buffer() abort
+  " Store the viewport position
+  let view = winsaveview()
+
+  " Call ledger#align_commodity for every line
+  %call ledger#align_commodity()
+
+  " Restore the viewport position
+  call winrestview(view)
+  unlet view
+endf
+
 " Align the amount under the cursor and append/prepend the default currency.
 function! ledger#align_amount_at_cursor() abort
   " Select and cut text:
@@ -740,5 +755,3 @@ function! ledger#show_balance(file, ...) abort
   endif
 endf
 " }}}
-
-endif

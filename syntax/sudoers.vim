@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'sudoers') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'sudoers', 'syntax/sudoers.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:             sudoers(5) configuration files
@@ -389,5 +391,3 @@ let b:current_syntax = "sudoers"
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
-
-endif

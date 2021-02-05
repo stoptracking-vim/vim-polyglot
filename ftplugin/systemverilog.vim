@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'systemverilog') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'systemverilog', 'ftplugin/systemverilog.vim')
+  finish
+endif
 
 " Vim filetype plugin file
 " Language:    SystemVerilog
@@ -11,5 +13,3 @@ endif
 
 " Behaves just like Verilog
 runtime! ftplugin/verilog.vim
-
-endif

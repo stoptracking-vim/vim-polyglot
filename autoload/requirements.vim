@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'requirements') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'requirements', 'autoload/requirements.vim')
+  finish
+endif
 
 " the Requirements File Format syntax support for Vim
 " Version: 1.5.3
@@ -32,5 +34,3 @@ set cpo&vim
 let &cpo = s:save_cpo
 unlet s:save_cpo
 " vim: et sw=4 ts=4 sts=4:
-
-endif

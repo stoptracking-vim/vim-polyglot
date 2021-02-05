@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'modula3') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'modula3', 'syntax/modula3.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	Modula-3
@@ -59,5 +61,3 @@ let b:current_syntax = "modula3"
 "I prefer to use this...
 "set ai
 "vim: ts=8
-
-endif

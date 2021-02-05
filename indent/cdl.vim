@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'cdl') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'cdl', 'indent/cdl.vim')
+  finish
+endif
 
 " Description:	Comshare Dimension Definition Language (CDL)
 " Author:	Raul Segura Acevedo <raulseguraaceved@netscape.net>
@@ -129,5 +131,3 @@ fun! CdlGetIndent(lnum)
 
   return ind
 endfun
-
-endif

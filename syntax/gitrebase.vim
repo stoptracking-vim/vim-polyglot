@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'git') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'git', 'syntax/gitrebase.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	git rebase --interactive
@@ -57,5 +59,3 @@ hi def link gitrebaseMergeComment   gitrebaseComment
 hi def link gitrebaseName           Tag
 
 let b:current_syntax = "gitrebase"
-
-endif

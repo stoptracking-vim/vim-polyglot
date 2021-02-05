@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'make') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'make', 'indent/make.vim')
+  finish
+endif
 
 " Vim indent file
 " Language:             Makefile
@@ -116,5 +118,3 @@ function GetMakeIndent()
     endif
   endif
 endfunction
-
-endif

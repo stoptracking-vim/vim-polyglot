@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'dot') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'dot', 'syntax/dot.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:     Dot
@@ -97,5 +99,3 @@ hi def link dotIdentifier	 Identifier
 let b:current_syntax = "dot"
 
 " vim: ts=8
-
-endif

@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'graphql') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'graphql', 'after/syntax/typescript/graphql.vim')
+  finish
+endif
 
 " Copyright (c) 2016-2020 Jon Parise <jon@indelible.org>
 "
@@ -27,7 +29,11 @@ if exists('b:current_syntax')
   let s:current_syntax = b:current_syntax
   unlet b:current_syntax
 endif
+
+let b:graphql_nested_syntax = 1
 syn include @GraphQLSyntax syntax/graphql.vim
+unlet b:graphql_nested_syntax
+
 if exists('s:current_syntax')
   let b:current_syntax = s:current_syntax
 endif
@@ -45,5 +51,3 @@ hi def link graphqlTemplateExpression typescriptTemplateSubstitution
 
 syn cluster typescriptExpression add=graphqlTaggedTemplate
 syn cluster graphqlTaggedTemplate add=graphqlTemplateString
-
-endif

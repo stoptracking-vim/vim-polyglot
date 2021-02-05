@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'lhaskell') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'lhaskell', 'syntax/lhaskell.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:		Haskell with literate comments, Bird style,
@@ -123,5 +125,3 @@ unlet s:oldcolumn
 let b:current_syntax = "lhaskell"
 
 " vim: ts=8
-
-endif

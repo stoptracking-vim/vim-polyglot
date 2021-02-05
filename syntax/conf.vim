@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'conf') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'conf', 'syntax/conf.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	generic configure file
@@ -26,5 +28,3 @@ hi def link confString	String
 let b:current_syntax = "conf"
 
 " vim: ts=8 sw=2
-
-endif

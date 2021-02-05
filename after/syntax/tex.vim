@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'tex') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'tex', 'after/syntax/tex.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	TeX
@@ -1340,5 +1342,3 @@ let   b:current_syntax = "tex"
 let &cpo               = s:keepcpo
 unlet s:keepcpo
 " vim: ts=8 fdm=marker
-
-endif

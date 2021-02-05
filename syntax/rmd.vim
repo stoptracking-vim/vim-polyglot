@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'rmd') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'rmd', 'syntax/rmd.vim')
+  finish
+endif
 
 " markdown Text with R statements
 " Language: markdown with R code chunks
@@ -118,5 +120,3 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 " vim: ts=8 sw=2
-
-endif

@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'dts') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'dts', 'syntax/dts.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	dts/dtsi (device tree files)
@@ -30,5 +32,3 @@ hi def link dtsReference        Macro
 hi def link dtsComment          Comment
 hi def link dtsCommentInner     Comment 
 hi def link dtsCommentLine      Comment
-
-endif

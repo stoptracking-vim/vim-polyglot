@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'rrst') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'rrst', 'ftplugin/rrst.vim')
+  finish
+endif
 
 " Vim filetype plugin file
 " Language: reStructuredText documentation format with R code
@@ -54,5 +56,3 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 " vim: sw=2
-
-endif

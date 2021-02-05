@@ -1,4 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'tidy') == -1
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'tidy', 'syntax/tidy.vim')
+  finish
+endif
 
 " Vim syntax file
 " Language:	HMTL Tidy configuration file (/etc/tidyrc ~/.tidyrc)
@@ -135,5 +137,3 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 " vim: ts=8
-
-endif
